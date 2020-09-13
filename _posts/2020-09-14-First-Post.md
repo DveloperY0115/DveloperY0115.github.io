@@ -1,6 +1,6 @@
 ---
 title: "github.io 블로그 생성!"
-
+excerpt: "dveloperY0115.github.io의 첫 포스트"
 categories:
 	- Blog
 tags:
