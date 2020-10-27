@@ -2,7 +2,7 @@
 title : "RL from Scratch"
 permalink : /categories/RLFromScratch/
 layout : category
-author_profile : true
+author_profile : false
 taxonomy: RL from Scratch
 ---
 
