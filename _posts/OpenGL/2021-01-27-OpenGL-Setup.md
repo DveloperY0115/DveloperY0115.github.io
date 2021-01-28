@@ -46,7 +46,7 @@ print("Hello World")
 
 - 운영체제 (Operating System): **macOS Catalina 10.15.7** & **Microsoft Windows 10**
 - 빌드 도구 (Build Tool): **CMake**
-- 컴파일러 (Build Toolchain): macOS의 경우 **Clang** / Windows의 경우 **MSVC**
+- 컴파일러 (Compiler): macOS의 경우 **Clang** / Windows의 경우 **MSVC**
 - 통합 개발 환경 (IDE): **CLion 2020.2**
 
 > *macOS의 경우 Xcode Command Line Tool이 이미 설치되어 있다고 가정합니다.*
