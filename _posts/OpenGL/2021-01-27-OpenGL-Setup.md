@@ -197,7 +197,7 @@ Visual Studio를 시스템에 설치할 때 따라오는 MSVC 및 Windows SDK는
 우리의 프로젝트는 GUI 및 사용자-시스템 간 상호작용 이벤트 처리를 위해 GLUT을 사용합니다. 그 중에서도 비교적 최근까지 업데이트가 이루어지고 있는 freeGLUT을 사용할 것입니다. [여기](https://www.transmissionzero.co.uk/software/freeglut-devel/)에서 MSVC에 호환되는 freeGLUT 패키지를 다운로드 받고, 압축을 풀면 아래와 같이 여러 파일들이 있습니다. 
 
 <figure>
-    <img src="../../assets/image/Posts/OpenGL/opengl-setup/freeglut.png" width=500>
+    <img src="../../assets/image/Posts/OpenGL/opengl-setup/freeglut.PNG" width=500>
 </figure>
 
 이들을 MSVC 폴더 내로 옮겨주면 간단하게 설치됩니다! 사용하시는 시스템이 32비트냐 64비트냐에 따라 경로가 다르니 주의해주세요! 
