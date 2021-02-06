@@ -7,7 +7,7 @@ categories:
 
 use_math: true
 
-last_modified_at: 2021-01-27T23:40:00-00:00
+last_modified_at: 2021-02-06T16:00:00-00:00
 ---
 
 # 시작하며
@@ -46,14 +46,14 @@ print("Hello World")
 
 - 운영체제 (Operating System): **macOS Catalina 10.15.7** & **Microsoft Windows 10**
 - 빌드 도구 (Build Tool): **CMake**
-- 컴파일러 (Compiler): macOS의 경우 **Clang** / Windows의 경우 **MSVC**
+- 컴파일러 (Compiler): macOS의 경우 **Clang** / Windows의 경우 **MSVC(Visual Studio)**
 - 통합 개발 환경 (IDE): **CLion 2020.2**
 
 > *macOS의 경우 Xcode Command Line Tool이 이미 설치되어 있다고 가정합니다.*
 
 > 사용자가 CMake에 어느 정도 익숙하다고 가정합니다. 본 튜토리얼에서는 복잡한 기능이 사용되지 않고, 최대한 자세히 설명할 것입니다만 보다 자세한 내용은 공식 문서를 참고해주세요.
 
-이 글은 우선적으로 macOS에서 OpenGL API를 사용하는 C/C++ 프로젝트를 빌드하기 위해서는 어떻게 해야하는지를 다룹니다. OpenGL과 GLUT과 같은 의존성을 잡아주는 것부터 시작해서 Retina 디스플레이로 인해 발생하는 문제를 해결하기 위한 방법을 제시합니다. macOS에서의 빌드가 해결되면 Windows 10에서도 빌드가 가능하도록 약간의 수정을 가합니다. 이후에도 설명하겠지만 CUI와 GUI를 구분하는 Windows 특성상 부가적인 작업이 필요합니다.
+이 글은 우선적으로 macOS에서 OpenGL API를 사용하는 C/C++ 프로젝트를 빌드하기 위해서는 어떻게 해야하는지를 다룹니다. OpenGL과 GLUT과 같은 의존성을 잡아주는 것부터 시작해서 Retina 디스플레이로 인해 발생하는 문제를 해결하기 위한 방법을 제시합니다. macOS에서의 빌드가 해결되면 Windows 10에서도 빌드가 가능하도록 약간의 수정을 가합니다.
 
 > 숙련된 개발자 분들께서 보시기에는 "왜 당연한 내용을 저렇게 장황하게 설명하지?"라는 생각이 들 수 있습니다. 우선 이 글의 대상 독자는 **컴퓨터 그래픽스 관련 과목을 수강하기 위해 OpenGL을 사용해야 하는 학부생**이라는 것을 밝힙니다. 하지만 이게 잘못된 정보의 전달에 대한 변명이 될 수는 없을 것입니다. 저 역시 현재 공부를 하고 있는 학부생이기에 제가 떠올린 해답이 비효율적일 수도 있고 어쩌면 아예 잘못됐을 수도 있습니다. 본문에 잘못된 내용이 있다면 부족한 제게 따끔한 지적 부탁드립니다.
 
@@ -185,7 +185,116 @@ void display() {
 
 성공입니다! 코드의 원래 의도대로 화면 중앙에 사각형이 자리잡고 있는 것을 볼 수 있습니다. 이로써 macOS에서 CMake를 이용해 OpenGL, GLUT 등 외부 종속성을 올바르게 링크하고, Retina Display를 사용하는 Mac 모델에서 화면이 올바르게 출력되지 않는 오류를 해결했습니다. 급한 불을 하나 껐으니 이어서 Windows 환경에서도 프로젝트가 빌드될 수 있도록 설정해보겠습니다.
 
-## Windows에서의 OpenGL 설정
+# Windows에서의 OpenGL 설정
 
-## OpenGL, GLEW, GLUT 설치 및 의존성 잡아주기
+별도의 설정이 없다면 CLion은 시스템에 설치된 MSVC를 자동으로 감지하고 빌드 툴체인으로 등록합니다.
+물론 MinGW와 같은 훌륭한 대안들도 있습니다만, 여기서는 MSVC를 기준으로 서술합니다.
 
+## GLUT 설치 및 의존성 잡아주기
+
+Visual Studio를 시스템에 설치할 때 따라오는 MSVC 및 Windows SDK는 Windows에서 구동되는 프로그램을 작성할 때 유용한 여러 도구들을 포함합니다. 우리에게 필요한 OpenGL도 여기에 있습니다. 때문에 macOS에서 했던 것처럼 OpenGL은 별도의 작업없이 사용할 수 있습니다. 
+
+우리의 프로젝트는 GUI 및 사용자-시스템 간 상호작용 이벤트 처리를 위해 GLUT을 사용합니다. 그 중에서도 비교적 최근까지 업데이트가 이루어지고 있는 freeGLUT을 사용할 것입니다. [여기](https://www.transmissionzero.co.uk/software/freeglut-devel/)에서 MSVC에 호환되는 freeGLUT 패키지를 다운로드 받고, 압축을 풀면 아래와 같이 여러 파일들이 있습니다. 
+
+<figure>
+    <img src="../../assets/image/Posts/OpenGL/opengl-setup/freeglut.png" width=500>
+</figure>
+
+이들을 MSVC 폴더 내로 옮겨주면 간단하게 설치됩니다! 사용하시는 시스템이 32비트냐 64비트냐에 따라 경로가 다르니 주의해주세요! 
+
+- `include` 폴더 아래의 `GL` 폴더가 freeGLUT 라이브러리를 사용할 때 필요한 헤더 파일들(`.h` 확장자)을 담고 있습니다. `GL` 폴더 자체를 다음 경로 아래로 옮깁니다. `C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\[MSVC_VERSION]\include`
+
+
+- 다음은 정적 라이브러리 파일(`.lib` 확장자)을 옮겨줄 차례입니다. 프로젝트를 x86 (32 bit) 시스템을 위해 빌드하려면 **x86** 부분을, AMD64 (64 bit) 시스템에서 구동되게 하려면 **AMD64** 부분을 진행하시면 됩니다. 
+
+    - [**x86**] `lib` 폴더 아래의 `freeglut.lib` 파일을 `C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\[MSVC_VERSION]\lib\x86` 아래로 옮겨줍니다.
+
+    - [**AMD64**] `lib\x64` 폴더 아래의 `freeglut.lib` 파일을 `C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\[MSVC_VERSION]\lib\x64` 아래로 옮겨줍니다.
+
+- 마지막으로 동적 라이브러리 파일(`.dll` 확장자)을 옮겨줍니다. 32 비트 플랫폼을 위해 프로젝트를 빌드한다면 `bin` 폴더 아래의 `freeglut.dll` 파일을 `C:\Windows\System32` 폴더 아래로 옮깁니다. 64 비트 플랫폼의 경우 `bin\x64` 아래의 `freeglut.dll` 파일을 마찬가지로 `C:\Windows\System32` 폴더 아래로 옮깁니다.
+
+이로써 freeGLUT 설치가 끝났습니다! 이제 MSVC를 위한 CMake 빌드 스크립트를 작성합니다.
+
+### CMakeLists.txt 작성하기
+
+macOS에서 프로젝트를 설정할 때처럼 우선은 CMake에게 빌드 종속성이 어디에 있는지 알려줘야 합니다. CMake가 시스템에 설치된 OpenGL과 freeGLUT을 찾을 수 있도록 원래의 `CMakeLists.txt` 파일에 다음 내용을 추가합니다.
+
+```cmake
+if (APPLE)
+    ...
+endif()
+
+# macOS에서의 find_package 구문 아래에 추가
+
+if (MSVC)
+    # Find OpenGL
+    find_package(OpenGL REQUIRED)
+    if (${OpenGL_FOUND})
+        MESSAGE(STATUS "Found OpenGL.")
+    else(${OpenGL_FOUND})
+        MESSAGE(STATUS "Could not locate OpenGL.")
+    endif (${OpenGL_FOUND})
+
+    # Find GLUT
+    find_package(GLUT REQUIRED)
+    if (${GLUT_FOUND})
+        MESSAGE(STATUS "Found GLUT.")
+    else(${GLUT_FOUND})
+        MESSAGE(STATUS "Could not locate GLUT.")
+    endif (${GLUT_FOUND})
+endif()
+```
+
+이렇게 하면 CMake는 Windows SDK에서 OpenGL을, MSVC에서 freeGLUT을 찾습니다. 이제 컴파일 된 바이너리에 라이브러리를 링크시키면 끝납니다! `CMakeLists.txt` 파일을 다음과 같이 수정합니다.
+
+```cmake
+add_executable(opengl_setting main.cpp)
+
+# if macOS
+# 이제는 시스템마다 다른 링커 옵션이 필요하므로 조건문으로 감싸줍니다.
+if (APPLE)
+    target_link_libraries(opengl_setting "-framework OpenGL")
+    target_link_libraries(opengl_setting "-framework GLUT")
+endif()
+
+# if Windows
+if (MSVC)
+    target_link_libraries(opengl_setting ${OPENGL_LIBRARIES})
+    target_link_libraries(opengl_setting ${GLUT_LIBRARIES})
+endif()
+```
+
+`CMakeLists.txt` 작성은 이걸로 끝입니다. 이제 `main.cpp`에서 알맞은 헤더 파일을 include 해줍니다.
+
+```cpp
+#include <iostream>
+
+#ifdef __APPLE__
+#include <OpenGL/gl.h>
+#include <GLUT/glut.h>
+#define GL_SILENCE_DEPRECATION
+#endif
+
+// macOS에서의 헤더 include 구문 아래 다음 내용 추가
+#ifdef _MSC_VER
+#include <GL/glut.h>
+#endif
+
+/*
+rest of source code
+*/
+```
+
+이제 빌드, 실행해볼까요?
+
+<figure>
+    <img src="../../assets/image/Posts/OpenGL/opengl-setup/correct_viewport_windows.png" width=500>
+</figure>
+
+정상적으로 작동합니다!
+
+# 마치며
+
+이로써 macOS와 Windows 환경에서 Xcode나 Visual Studio 같은 Platform-dependent한 IDE를 사용하지 않고도 동일한 소스 코드, 동일한 IDE를 사용해 작업을 할 수 있게 되었습니다! 비록 설정에 어려움은 있었지만 이 방식이 개별 플랫폼마다 수동으로 버전을 관리하는 것보다 편리하고 안전합니다. 무엇보다 코드에 큰 변화를 주지 않아도 다양한 플랫폼에서 빌드, 실행할 수 있다는 점이 우아하고도 매력적입니다.
+
+**설명에 쓰인 예제 프로젝트를 [Github](https://github.com/DveloperY0115/opengl-setting)에 업로드 해두었습니다.** 
