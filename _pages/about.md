@@ -22,9 +22,9 @@ social: true  # includes social icons at the bottom of the page
 Hi, I'm Seungwoo Yoo, an incoming M.S. student at [KAIST Geometric AI Lab](https://mhsung.github.io) headed by Prof. Minhyuk Sung. I will be graduating with a B.S. degree in Computer Science (Major) and Electrical Engineering (Minor) at [KAIST](https://www.kaist.ac.kr/en/) in Aug. 2023.
 
 My research interest encompasses various computational problems arising from the intersection of computer graphics and vision. In particular, my research area includes but is not limited to:
-- Generative Modeling for 3D Data
-- 3D Reconstruction
-- Multimodal 3D Data Manipulation
-- Geometry Processing
+- Generative Modeling for 3D Data;
+- 3D Reconstruction;
+- Multimodal 3D Data Manipulation;
+- Geometry Processing.
 
 For details, refer to my [Curriculum Vitae (PDF)](assets/pdf/CV.pdf).
