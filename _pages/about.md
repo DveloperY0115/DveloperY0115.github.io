@@ -9,7 +9,7 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   address: >
-    <p>dreamy1534@kaist.ac.kr</p>
+    <p>dreamy1534 [at] kaist.ac.kr</p>
     <p>N1 Rm. 622</p>
     <p>Daejeon, South Korea</p>
 
@@ -19,7 +19,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am an incoming M.S. student at [KAIST Geometric AI Lab](https://mhsung.github.io) headed by Prof. Minhyuk Sung. I will be graduating with a B.S. degree in Computer Science (Major) and Electrical Engineering (Minor) at [KAIST](https://www.kaist.ac.kr/en/) in Aug. 2023.
+I am an M.S. student at [KAIST Geometric AI Lab](https://mhsung.github.io) headed by Prof. Minhyuk Sung. I received a B.S. degree in Computer Science (Major) and Electrical Engineering (Minor) at [KAIST](https://www.kaist.ac.kr/en/) in Aug. 2023.
 
 My research interest encompasses various computational problems arising from the intersection of computer graphics and vision. In particular, my research area includes but is not limited to:
 - Generative Modeling for 3D Data;
