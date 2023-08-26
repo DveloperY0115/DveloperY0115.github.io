@@ -2,16 +2,17 @@
 layout: about
 title: About
 permalink: /
-subtitle: M.S. Student @ <a href='https://mhsung.github.io'>KAIST Geometric AI Lab</a>.
+subtitle: dreamy1534 [at] kaist.ac.kr
 
 profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   address: >
-    <p>dreamy1534 [at] kaist.ac.kr</p>
-    <p>N1 Rm. 622</p>
-    <p>Daejeon, South Korea</p>
+    <p>N1, Rm. 622, KAIST</p>
+    <p>291 Daehak-ro,</p>
+    <p>Yuseong-gu, Daejeon,</p>
+    <p>South Korea 34141</p>
 
 news: true  # includes a list of news items
 latest_posts: false  # includes a list of the newest posts
