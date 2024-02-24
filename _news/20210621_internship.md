@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I started to work at [KAIST Visual AI Lab](https://mhsung.github.io) as an undergraduate intern.
+I started to work at [KAIST Visual AI Group](https://mhsung.github.io) as an undergraduate intern.
