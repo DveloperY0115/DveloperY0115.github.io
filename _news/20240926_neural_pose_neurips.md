@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our paper Neural Pose Representation Learning for Generating and Transferring Non-Rigid Object Poses is accepted at **NeurIPS 2024**.
+Our paper [Neural Pose Representation Learning for Generating and Transferring Non-Rigid Object Poses](https://arxiv.org/abs/2406.09728) is accepted at **NeurIPS 2024**.
