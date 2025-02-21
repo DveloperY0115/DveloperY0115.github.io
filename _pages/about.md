@@ -20,11 +20,11 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am an M.S. student at [KAIST Visual AI Group](https://kaist-visual-ai-group.github.io) headed by [Prof. Minhyuk Sung](https://mhsung.github.io). I received my B.S. degree in Computer Science (Major) and Electrical Engineering (Minor) at [KAIST](https://www.kaist.ac.kr/en/) in Aug. 2023.
+I am a first-year Ph.D. student in the [KAIST Visual AI Group](https://kaist-visual-ai-group.github.io), headed by [Prof. Minhyuk Sung](https://mhsung.github.io). I earned my B.S. in Computer Science (major) with a minor in Electrical Engineering from [KAIST](https://www.kaist.ac.kr/en/) in Aug. 2023 and my M.S. in Computer Science from [KAIST](https://www.kaist.ac.kr/en/) in Feb. 2025.
 
 My research interest encompasses various computational problems arising from the intersection of computer graphics and vision. In particular, my research area includes but is not limited to:
 - Generative Modeling for 3D Data;
-- 3D Reconstruction;
+- AI for Science;
 - Multimodal 3D Data Manipulation;
 - Geometry Processing.
 
