@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our paper Neural Green’s Functions for Solving Poisson’s Equation is accepted at **NeurIPS 2025**. Stay tuned for more details!
+Our paper Neural Green’s Functions is accepted at **NeurIPS 2025**. The paper is now available [here](../assets/pdf/yoo_ngf.pdf).
