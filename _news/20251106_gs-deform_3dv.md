@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our paper on proxy-free Gaussian splat deformation has been accepted to 3DV 2026. The paper is now available on [arXiv](https://arxiv.org/abs/2511.19542).
+Our paper on proxy-free Gaussian splat deformation has been accepted at 3DV 2026. The paper is now available on [arXiv](https://arxiv.org/abs/2511.19542).
