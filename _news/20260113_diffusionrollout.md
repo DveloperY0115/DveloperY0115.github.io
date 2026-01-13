@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our paper, DiffusionRollout, which introduces an adaptive rollout strategy for diffusion models applied to time-dependent PDEs, has been accepted to **TMLR**. More details coming soon.
+Our paper, DiffusionRollout, which introduces an adaptive rollout strategy for diffusion models applied to time-dependent PDEs, has been accepted at **TMLR**. More details coming soon.
