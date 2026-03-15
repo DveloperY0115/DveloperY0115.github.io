@@ -1,7 +1,3 @@
-"Choi":
-  - firstname: ["Daehyeon"]
-    url: https://choidaedae.github.io
-
 "Sung":
   - firstname: ["Minhyuk"]
     url: https://mhsung.github.io
@@ -10,14 +6,6 @@
   - firstname: ["Juil"]
     url: https://63days.github.io
 
-"Yeo":
-  - firstname: ["Kyeongmin"]
-    url: https://32v.github.io
-
-"Nguyen":
-  - firstname: ["Minh Hieu"]
-    url: https://min-hieu.github.io
-
 "Kim":
   - firstname: ["Kunho"]
     url: https://soulmates2.github.io
@@ -25,6 +13,29 @@
   - firstname: ["Vladimir G."]
     url: http://www.vovakim.com
 
+"Lee":
+  - firstname: ["Phillip Y."]
+    url: https://phillipinseoul.github.io
+
+"Nguyen":
+  - firstname: ["Minh Hieu"]
+    url: https://min-hieu.github.io
+
+"Yeo":
+  - firstname: ["Kyeongmin"]
+    url: https://32v.github.io
+
+"Park":
+  - firstname: ["Chanho"]
+    url: https://charlieppark.kr
+
+  - firstname: ["Mingue"]
+    url: https://uygnim99.github.io
+
 "Min":
   - firstname: ["Yunhong"]
     url: https://myh4832.github.io
+
+"Choi":
+  - firstname: ["Daehyeon"]
+    url: https://choidaedae.github.io
